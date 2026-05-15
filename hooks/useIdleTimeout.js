@@ -58,6 +58,7 @@ export default function useIdleTimeout(timeoutMinutes = 15) {
   }, [timeoutMinutes, isSessionExpired, handleLogout, user]);
 
   // 🛡️ Tự động xoá trạng thái hết hạn nếu bỗng nhiên thấy user (đăng nhập thành công)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     console.log("isSessionExpired", isSessionExpired);
     if (user && isSessionExpired) {

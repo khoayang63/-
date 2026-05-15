@@ -12,6 +12,7 @@ export default function CartPage() {
   const router = useRouter();
 
   // ✅ Xóa item khỏi danh sách đã chọn nếu nó bị xóa khỏi giỏ
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     setSelectedItems((prev) => prev.filter((id) => cart.some((item) => item.id === id)));
   }, [cart]);
@@ -176,7 +177,7 @@ export default function CartPage() {
 
                   <div className="flex items-center justify-between mt-auto">
                     <div className="flex items-center bg-slate-950 rounded-lg border border-slate-800 h-10">
-                      <button 
+                      <button
                         onClick={() => decreaseQty(item.id)}
                         className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 rounded-l-lg transition-colors font-medium text-lg"
                       >
@@ -185,7 +186,7 @@ export default function CartPage() {
                       <span className="w-12 text-center font-bold text-white">
                         {item.quantity}
                       </span>
-                      <button 
+                      <button
                         onClick={() => increaseQty(item.id)}
                         className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 rounded-r-lg transition-colors font-medium text-lg"
                       >
@@ -193,16 +194,16 @@ export default function CartPage() {
                       </button>
                     </div>
 
-                    <button 
+                    <button
                       className="text-slate-500 hover:text-red-500 hover:bg-red-500/10 p-2 rounded-lg transition-all"
                       onClick={() => {
-                        if(confirm("Xoá sản phẩm này khỏi giỏ hàng?")) {
+                        if (confirm("Xoá sản phẩm này khỏi giỏ hàng?")) {
                           removeItems([item.id]);
                         }
                       }}
                       title="Xoá khỏi giỏ hàng"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></svg>
                     </button>
                   </div>
                 </div>
@@ -214,7 +215,7 @@ export default function CartPage() {
         {/* Right Side: Order Summary */}
         <div className="w-full lg:w-96 flex-shrink-0 bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-xl lg:sticky lg:top-24">
           <h2 className="text-xl font-bold text-white mb-6 uppercase tracking-wider">Tóm tắt đơn hàng</h2>
-          
+
           <div className="space-y-4 mb-8">
             <div className="flex justify-between text-slate-400">
               <span>Sản phẩm đã chọn:</span>
@@ -233,7 +234,7 @@ export default function CartPage() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <button 
+            <button
               className="w-full py-4 rounded-xl font-bold text-slate-900 bg-amber-500 hover:bg-amber-400 transition-all shadow-[0_0_15px_rgba(245,158,11,0.3)] hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
               disabled={selectedItems.length === 0}
               onClick={handleCheckout}
@@ -251,7 +252,7 @@ export default function CartPage() {
               🗑 Xoá các mục đã chọn ({selectedItems.length})
             </button>
           </div>
-          
+
           <div className="mt-6 pt-6 border-t border-slate-800">
             <Link href="/products" className="block text-center text-sm font-medium text-slate-400 hover:text-amber-500 transition-colors">
               ← Tiếp tục mua sắm
