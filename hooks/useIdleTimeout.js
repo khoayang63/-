@@ -58,12 +58,9 @@ export default function useIdleTimeout(timeoutMinutes = 15) {
   }, [timeoutMinutes, isSessionExpired, handleLogout, user]);
 
   // 🛡️ Tự động xoá trạng thái hết hạn nếu bỗng nhiên thấy user (đăng nhập thành công)
-  useEffect(() => {
-    console.log("isSessionExpired", isSessionExpired);
-    if (user && isSessionExpired) {
-      setIsSessionExpired(false);
-    }
-  }, [user, isSessionExpired]);
+  if (user && isSessionExpired) {
+    setIsSessionExpired(false);
+  }
 
   useEffect(() => {
     // Các hành động được coi là "người dùng đang tương tác"

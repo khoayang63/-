@@ -1,3 +1,4 @@
+// This is a small comment to test the CI pipeline on the update branch
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-white/5 mt-auto">
