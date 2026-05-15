@@ -43,9 +43,11 @@ export function AuthProvider({ children, initialUser, initialProfile }) {
   }, []);
 
   // Keep in sync when server re-renders with new props
-  // eslint-disable-next-line react-hooks/set-state-in-effect
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setUser(initialUser || null);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProfile(initialProfile || null);
   }, [initialUser, initialProfile]);
 

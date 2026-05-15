@@ -12,8 +12,9 @@ export default function CartPage() {
   const router = useRouter();
 
   // ✅ Xóa item khỏi danh sách đã chọn nếu nó bị xóa khỏi giỏ
-  // eslint-disable-next-line react-hooks/set-state-in-effect
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedItems((prev) => prev.filter((id) => cart.some((item) => item.id === id)));
   }, [cart]);
 
