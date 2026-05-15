@@ -43,13 +43,10 @@ export function AuthProvider({ children, initialUser, initialProfile }) {
   }, []);
 
   // Keep in sync when server re-renders with new props
-  // We use a pattern to adjust state during render when props change
-  const [prevInitial, setPrevInitial] = useState({ initialUser, initialProfile });
-  if (prevInitial.initialUser !== initialUser || prevInitial.initialProfile !== initialProfile) {
-    setPrevInitial({ initialUser, initialProfile });
+  useEffect(() => {
     setUser(initialUser || null);
     setProfile(initialProfile || null);
-  }
+  }, [initialUser, initialProfile]);
 
   const isAdmin = profile?.role === "admin";
 
