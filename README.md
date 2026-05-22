@@ -1,4 +1,4 @@
-# React E-Commerce Application
+# E-Commerce Application
 
 A modern, full-stack e-commerce application built with Next.js App Router and Supabase.
 
